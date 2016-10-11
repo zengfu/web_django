@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <header>
+        <div class="container">
+            <table>
+                <tr>
+                    <td style="width:100%;height:100px;font-size:14px;border:0">
+                    </td>
+                </tr>
+            </table>
+            <div class="row clearfix">
+                <div >
+                    <h1 class="text-center" style="color:#2aabd2;font-size: 80px">Bananalife.top</h1>
+                </div>
+            </div>
+            <table>
+                <tr>
+                    <td style="width:100%;height:140px;font-size:14px;border:0">
+                    </td>
+                </tr>
+            </table>
+                <form method="get">
+                    <div class="row">
+                        <div class="col-md-offset-12"> </div>
+                        <div class="col-md-offset-12"> </div>
+                        <div class="col-md-offset-12"> </div>
+                        <input type="text" name='search' class="col-md-8">
+                        <input type="submit" value="ALL"  name="all" class="col-md-2">
+                    </div>
+
+                    <div class="row">
+                        <input type="submit" value="Baidu" name="baidu" class="col-md-offset-8 col-md-1">
+                        <input type="submit" value="Bing"  name="bing" class=" col-md-1">
+                        <input type="submit" value="Google"  name="google" class=" col-md-1">
+                    </div>
+                    <div class="row">
+                        <input type="submit" value="Github"  name="github" class="col-md-offset-8 col-md-1">
+                        <input type="submit" value="知乎"  name="zhihu" class="col-md-1">
+                        <input type="submit" value="quora" name="quora" class="col-md-1">
+                        <input type="submit" value="微博"  name="weibo" class="col-md-1">
+                    </div>
+                    <div class="row">
+                        <input type="submit" value="淘宝"  name="taobao" class="col-md-offset-8 col-md-1">
+                        <input type="submit" value="京东"  name="jingdong" class="col-md-1">
+                    </div>
+
+                </form>
+            </div>
+
+    </header>
+{% endblock %}

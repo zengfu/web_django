@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <div class="container">
+        <h1>baidu</h1>
+        {% for i in baidu %}
+            <a href={{ i.href }} target="view_window">{{  i.des}}</a>
+            </br>
+        {% endfor %}
+        <h1>bing</h1>
+        {% for i in bing %}
+            <a href={{ i.href }} target="view_window">{{  i.des}}</a>
+            </br>
+        {% endfor %}
+        <h1>zhihu</h1>
+        {% for i in zhihu %}
+            <a href={{ i.href }} target="view_window">{{  i.des}}</a>
+            </br>
+        {% endfor %}
+    </div>
+
+
+{% endblock %}
