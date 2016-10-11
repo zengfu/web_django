@@ -16,8 +16,11 @@ Including another URLconf
 from django.conf.urls import url,include
 from django.contrib import admin
 from index import views as iv
+from ds import views as dsv
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$',iv.index,name='index'),
+    url(r'^dsupload/',dsv.dsupload),
+    url(r'^pdf/',dsv.show),
 ]

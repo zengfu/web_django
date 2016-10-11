@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block body %}
+    <h1>Contact us</h1>
+    <a href=""
+    {% if form.errors %}
+        <p style="color: red;">
+            Please correct the error{{ form.errors|pluralize }} below.
+        </p>
+    {% endif %}
+
+    <form action="" method="post" enctype="multipart/form-data">
+        <div class="field">
+            {{ form.mypn.errors }}
+            <label for="id_subject">part number:</label>
+            {{ form.mypn }}
+        </div>
+        <div class="field">
+            {{ form.value.errors }}
+            <label for="id_email">value:</label>
+            {{ form.value }}
+        </div>
+        <div class="field">
+            {{ form.type.errors }}
+            <label for="id_message">type:</label>
+            {{ form.type }}
+        </div>
+        <div class="field">
+            {{ form.description.errors }}
+            <label for="id_message">description:</label>
+            {{ form.description }}
+
+        </div>
+        <div class="field">
+            {{ form.venderpn.errors }}
+            <label for="id_message">vender P/N:</label>
+            {{ form.venderpn }}
+
+        </div>
+        <div class="field">
+            {{ form.datasheet.errors }}
+            <label for="id_message">datasheet:</label>
+            {{ form.datasheet }}
+
+        </div>
+
+        <div class="field">
+            {{ form.refdesign.errors }}
+            <label for="id_message">reference design:</label>
+            {{ form.refdesign }}
+
+        </div>
+        <div class="field">
+            {{ form.refcode.errors }}
+            <label for="id_message">reference code:</label>
+            {{ form.refcode }}
+
+        </div>
+        <div class="field">
+            {{ form.refsch.errors }}
+            <label for="id_message">reference sch:</label>
+            {{ form.refsch }}
+
+        </div>
+        {% csrf_token %}
+        <input type="submit" value="Submit">
+    </form>
+
+{% endblock %}
