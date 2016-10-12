@@ -6,6 +6,11 @@ from django.http import HttpResponse
 
 # Create your views here.
 
+def index(request):
+    dic=[{'dbname':'Datasheets','url':'dsshow'},
+         {'dbname':'Papers','url':'index'}]
+    return render(request,'ds_index.html',{'list':dic})
+
 class DSForm(forms.Form):
     mypn= forms.CharField()
     value= forms.CharField()
@@ -33,8 +38,8 @@ def dsupload(request):
     else:
         form = DSForm(
             initial={'subject': 'I love your site!'})
-    return render(request,'ds_upload.html',{'form':form,'file':"/media/datasheet/CP2105.pdf"})
-def show(request):
+    return render(request, 'ds_upload.html', {'form':form, 'file': "/media/datasheet/CP2105.pdf"})
+def dsshow(request):
     a=ic.objects.all()
     result=[]
     for i in a:
@@ -44,4 +49,4 @@ def show(request):
                        'refsch':i.refsch}
         result.append(new)
     #return HttpResponse('ok')
-    return render(request,'ds_show.html',{'result':result})
+    return render(request, 'ds_show.html', {'result':result})

@@ -22,5 +22,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$',iv.index,name='index'),
     url(r'^dsupload/',dsv.dsupload),
-    url(r'^pdf/',dsv.show),
+    url(r'^dbhome/',dsv.index,name='dbhome'),
+    url(r'^dsshow/',dsv.dsshow,name='dsshow'),
 ]

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block body %}
+    {% load staticfiles  %}
+    <div class="container">
+    <div class="row">
+        <a href="{% url "dbhome" %}" class="col-md-offset-0"><img src="{% static "image/back.png" %}"></a>
+    </div>
+    <table data-toggle="table">
+    <thead>
+        <tr>
+            <th>BL P\N</th>
+            <th>Value</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Datasheet</th>
+            <th>Ref Design</th>
+            <th>Ref Schematic</th>
+            <th>Ref Code</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in result %}
+            <tr>
+                <td>{{ i.mypn }}</td>
+                <td>{{ i.value }}</td>
+                <td>{{ i.type }}</td>
+                <td>{{ i.description}}</td>
+                <td><a href="{% static i.datasheet %}" target="_blank">PDF</a></td>
+                <td>{{ i.refdesign }}</td>
+                <td>{{ i.refsch }}</td>
+                <td>{{ i.refcode }}</td>
+            </tr>
+
+    {% endfor %}
+
+    </tbody>
+    </table>
+    </div>
+
+
+
+
+{% endblock %}
