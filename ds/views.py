@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django import forms
-from .models import ic
+from .models import ic,choice
 from django.http import HttpResponse
 #from reportlab.pdfgen import canvas
 
@@ -9,7 +9,7 @@ from django.http import HttpResponse
 class DSForm(forms.Form):
     mypn= forms.CharField()
     value= forms.CharField()
-    type=forms.CharField()
+    type=forms.ChoiceField(choices=choice)
     description=forms.CharField()
     venderpn =forms.CharField(required=False)
     datasheet = forms.FileField()
@@ -38,7 +38,8 @@ def show(request):
     a=ic.objects.all()
     result=[]
     for i in a:
-        new={'mypn':i.mypn,'value':i.value,'type':i.type,'description':i.description,
+        type=choice[int(i.type)][1]
+        new={'mypn':i.mypn,'value':i.value,'type':type,'description':i.description,
                        'venderpn':i.venderpn,'datasheet':i.datasheet,'refdesign':i.refdesign,'refcode':i.refcode,
                        'refsch':i.refsch}
         result.append(new)
