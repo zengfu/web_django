@@ -1,16 +1,26 @@
 {% extends 'base.html' %}
 {% block body %}
+
     {% load staticfiles  %}
     <div class="container">
     <div class="row">
         <a href="{% url "dbhome" %}" class="col-md-offset-0"><img src="{% static "image/back.png" %}"></a>
     </div>
-    <table data-toggle="table">
+    <div id="toolbar" class="btn-group">
+    <button type="button" class="btn btn-default">
+        <a class="glyphicon glyphicon-plus" href="{% url "index" %}"></a>
+    </button>
+    </div>
+    <table data-toggle="table" data-show-columns="true"
+           data-show-toggle="true"  data-show-refresh="true"
+           data-search="true" data-toolbar="#toolbar"
+           data-pagination="true"
+             >
     <thead>
         <tr>
-            <th>BL P\N</th>
-            <th>Value</th>
-            <th>Type</th>
+            <th data-switchable="false">BL P\N</th>
+            <th data-sortable="true" data-switchable="false">Value</th>
+            <th data-sortable="true" data-switchable="false">Type</th>
             <th>Description</th>
             <th>Datasheet</th>
             <th>Ref Design</th>
@@ -36,7 +46,6 @@
     </tbody>
     </table>
     </div>
-
 
 
 
