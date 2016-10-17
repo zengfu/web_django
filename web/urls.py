@@ -21,7 +21,7 @@ from ds import views as dsv
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$',iv.index,name='index'),
-    url(r'^dsupload/',dsv.dsupload),
+    url(r'^dsupload/',dsv.dsupload,name='dsupload'),
     url(r'^dbhome/',dsv.index,name='dbhome'),
     url(r'^dsshow/',dsv.dsshow,name='dsshow'),
 ]

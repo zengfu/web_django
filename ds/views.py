@@ -14,7 +14,7 @@ def index(request):
 class DSForm(forms.Form):
     mypn= forms.CharField()
     value= forms.CharField()
-    type=forms.ChoiceField(choices=choice)
+    type=forms.ChoiceField(choices=choice,required=False)
     description=forms.CharField()
     venderpn =forms.CharField(required=False)
     datasheet = forms.FileField()
@@ -28,7 +28,6 @@ def dsupload(request):
         form=DSForm(request.POST,request.FILES)
         if form.is_valid():
             cd=form.cleaned_data
-            print cd['datasheet']
             ic1=ic(mypn=cd['mypn'],value=cd['value'],
                    type=cd['type'],description=cd['description'],venderpn=cd['venderpn'],
                    datasheet=cd['datasheet'],refdesign=cd['refdesign'],refcode=cd['refcode'],
@@ -38,7 +37,8 @@ def dsupload(request):
     else:
         form = DSForm(
             initial={'subject': 'I love your site!'})
-    return render(request, 'ds_upload.html', {'form':form, 'file': "/media/datasheet/CP2105.pdf"})
+    print form
+    return render(request, 'ds_upload.html', {'form':form,})
 def dsshow(request):
     a=ic.objects.all()
     result=[]

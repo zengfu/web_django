@@ -7,8 +7,8 @@
         <a href="{% url "dbhome" %}" class="col-md-offset-0"><img src="{% static "image/back.png" %}"></a>
     </div>
     <div id="toolbar" class="btn-group">
-    <button type="button" class="btn btn-default">
-        <a class="glyphicon glyphicon-plus" href="{% url "index" %}"></a>
+    <button type="button" class="btn btn-default" href="{% url "dsupload" %}">
+        <a class="glyphicon glyphicon-plus" href="{% url "dsupload" %}"></a>
     </button>
     </div>
     <table data-toggle="table" data-show-columns="true"
@@ -35,7 +35,7 @@
                 <td>{{ i.value }}</td>
                 <td>{{ i.type }}</td>
                 <td>{{ i.description}}</td>
-                <td><a href="{% static i.datasheet %}" target="_blank">PDF</a></td>
+                <td><a href="{% static i.datasheet %}" target="_blank">{{i.datasheet}}</a></td>
                 <td>{{ i.refdesign }}</td>
                 <td>{{ i.refsch }}</td>
                 <td>{{ i.refcode }}</td>
