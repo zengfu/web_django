@@ -1,3 +1,4 @@
+
 from __future__ import unicode_literals
 
 from django.db import models
@@ -11,7 +12,7 @@ choice=(
 )
 # Create your models here.
 class ic(models.Model):
-    mypn=models.CharField(max_length=30)
+    mypn=models.CharField(max_length=30,unique=True)
     value = models.CharField(max_length=30,null=True)
     type = models.CharField(max_length=30,null=True,choices=choice)
     description = models.TextField(max_length=100,null=True)
@@ -21,6 +22,7 @@ class ic(models.Model):
     refcode=models.FileField(max_length=100,upload_to='refcode/')
     refsch = models.FileField(max_length=100,upload_to='resch/')
     state=models.NullBooleanField()
+    time=models.DateTimeField('Data Modified',auto_now=True)
 
     def __str__(self):
         return self.mypn

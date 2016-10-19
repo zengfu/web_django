@@ -18,6 +18,7 @@
     <div class="row">
             <a href="{% url "dsshow" %}" class="col-md-offset-0"><img src="{% static "image/back.png" %}"></a>
     </div>
+    <h4 style="color:#2aabd2" class="col-md-offset-1">Note: Changing the database content!</h4>
     <table>
                     <tr>
                         <td style="width:100%;height:50px;font-size:14px;border:0">
@@ -30,21 +31,21 @@
     <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
         <div class="form-group has-feedback row">
             <label class="control-label col-sm-2" for="inputSuccess3">My P/N :</label>
-            <div class="col-sm-3">
+            <div class="col-sm-5">
                 <input type="text" class="form-control" name="mypn" required="required" value={{data.mypn}}>
             </div>
-            <p class="col-sm-2" style="color:red;font-size: 20px">{{ error_mypn }}</p>
+            <p class="col-sm-2" style="color:red;font-size: 20px">{{ error }}</p>
 
         </div>
         <div class="form-group has-feedback ">
             <label class="control-label col-sm-2" for="inputSuccess3">Value :</label>
-            <div class="col-sm-3">
+            <div class="col-sm-5">
             <input type="text" class="form-control" name="value" required="required" value={{data.value}}>
             </div>
         </div>
         <div class="form-group has-feedback">
             <label for="id_message" class="control-label col-sm-2">Type:</label>
-            <div class="col-sm-3">
+            <div class="col-sm-4">
                 <h4>{{ form.type }}</h4>
             </div>
         </div>
@@ -56,37 +57,50 @@
         </div>
         <div class="form-group has-feedback ">
             <label class="control-label col-sm-2" for="inputSuccess3">Vender P/N :</label>
-            <div class="col-sm-3">
+            <div class="col-sm-5">
             <input type="text" class="form-control" name="venderpn" value={{data.venderpn}}>
             </div>
         </div>
-        <div class="form-group has-feedback ">
+        <div class="form-group has-feedback row">
             <label class="control-label col-sm-2" for="inputSuccess3">DataSheet :</label>
-            <div class="col-sm-3">
-            <input type="file" class="form-control" name="datasheet" required='required' value={{data.datasheet}}>
+            <h5 class="col-sm-4" style="color:#2aabd2">{{ data.datasheet }}</h5>
+            <div class="col-sm-5">
+            <input type="file" class="form-control" name="datasheet"  value={{data.datasheet}}>
             </div>
         </div>
 
         <div class="form-group has-feedback ">
             <label class="control-label col-sm-2" for="inputSuccess3">Reference Design :</label>
-            <div class="col-sm-3">
+            <div class="col-sm-5">
             <input type="url" class="form-control" name="refdesign" value={{data.refdesign}}>
             </div>
         </div>
-        <div class="form-group has-feedback ">
+        <div class="form-group has-feedback row">
             <label class="control-label col-sm-2" for="inputSuccess3">Reference Code :</label>
-            <div class="col-sm-3">
+            <h5 class="col-sm-4" style="color:#2aabd2">
+                {% if data.refcode %}
+                    {{ data.refcode }}
+                {% else %}
+                    There is no content!
+                {% endif %}</h5>
+            <div class="col-sm-5">
             <input type="file" class="form-control" name="refcode" value={{data.refcode}}>
             </div>
         </div>
         <div class="form-group has-feedback ">
             <label class="control-label col-sm-2" for="inputSuccess3">Reference Sch :</label>
-            <div class="col-sm-3">
+            <h5 class="col-sm-4" style="color:#2aabd2">
+                {% if data.refsch %}
+                    {{ data.refsch }}
+                {% else %}
+                    There is no content!
+                {% endif %}</h5>
+            <div class="col-sm-5">
             <input type="file" class="form-control" name="refsch" value={{data.refsch}}>
             </div>
         </div>
         {% csrf_token %}
-        <input type="submit" value="Submit" class="btn btn-primary col-md-offset-1 col-md-1">
+        <input type="submit" value="SAVE" class="btn btn-primary col-md-offset-10 col-md-1">
     </form>
     </div>
 

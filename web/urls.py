@@ -24,4 +24,5 @@ urlpatterns = [
     url(r'^dsupload/',dsv.dsupload,name='dsupload'),
     url(r'^dbhome/',dsv.index,name='dbhome'),
     url(r'^dsshow/',dsv.dsshow,name='dsshow'),
+    url(r'^dschange/(.*?)/',dsv.dschange,name='dschange')
 ]
