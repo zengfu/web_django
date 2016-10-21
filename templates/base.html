@@ -23,16 +23,27 @@
 <body>
     {%  block Navigation %}
         <div>
-            <nav class="navbar">
-                <div class="navbar-collapse">
-                    <ul class="nav navbar-nav row">
-                            <li class="active"><a href="{% url "index" %}" >Home</a></li>
+            <nav class="navbar navbar-collapse">
+
+                    <ul class="nav navbar-nav navbar-left">
+                            <li class="active "><a href="{% url "index" %}" >Home</a></li>
                             <li ><a href="#" >Project</a></li>
                             <li ><a href="#" >Team</a></li>
                             <li ><a href="{% url "dbhome" %}">DB</a></li>
-                            <li><a href="http://www.bananalife.top:8080">Wiki</a> </li>
+                            <li ><a href="http://www.bananalife.top:8080">Wiki</a> </li>
                     </ul>
-                </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        {% if request.user.is_authenticated %}
+                            <li><a href="#"><span class="glyphicon glyphicon-user"></span>  {{request.user }}</a></li>
+                            <li><a href="{% url "logout" %}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                         {% else %}
+                            <li><a href="{% url "login" %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                            <li><a href="{% url "signup" %}"><span class="glyphicon glyphicon-user"></span> Signup</a></li>
+                        {% endif %}
+                    </ul>
+
+                    </ul>
+
             </nav>
         </div>
     {% endblock %}

@@ -32,7 +32,7 @@
         <div class="form-group has-feedback row">
             <label class="control-label col-sm-2" for="inputSuccess3">My P/N :</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" name="mypn" required="required" value={{data.mypn}}>
+                <input type="text" class="form-control" name="mypn" required="required" value="{{data.mypn}}">
             </div>
             <p class="col-sm-2" style="color:red;font-size: 20px">{{ error }}</p>
 
@@ -40,7 +40,7 @@
         <div class="form-group has-feedback ">
             <label class="control-label col-sm-2" for="inputSuccess3">Value :</label>
             <div class="col-sm-5">
-            <input type="text" class="form-control" name="value" required="required" value={{data.value}}>
+            <input type="text" class="form-control" name="value" required="required" value="{{data.value}}">
             </div>
         </div>
         <div class="form-group has-feedback">
@@ -52,27 +52,27 @@
         <div class="form-group has-feedback ">
             <label class="control-label col-sm-2" for="inputSuccess3">Description :</label>
             <div class="col-md-9">
-            <input type="text" class="form-control" name="description" required="required" value={{data.description}}>
+            <input type="text" class="form-control" name="description" required="required" value="{{data.description}}">
             </div>
         </div>
         <div class="form-group has-feedback ">
             <label class="control-label col-sm-2" for="inputSuccess3">Vender P/N :</label>
             <div class="col-sm-5">
-            <input type="text" class="form-control" name="venderpn" value={{data.venderpn}}>
+            <input type="text" class="form-control" name="venderpn" value="{{data.venderpn}}">
             </div>
         </div>
         <div class="form-group has-feedback row">
             <label class="control-label col-sm-2" for="inputSuccess3">DataSheet :</label>
             <h5 class="col-sm-4" style="color:#2aabd2">{{ data.datasheet }}</h5>
             <div class="col-sm-5">
-            <input type="file" class="form-control" name="datasheet"  value={{data.datasheet}}>
+            <input type="file" class="form-control" name="datasheet"  value="{{data.datasheet}}">
             </div>
         </div>
 
         <div class="form-group has-feedback ">
             <label class="control-label col-sm-2" for="inputSuccess3">Reference Design :</label>
             <div class="col-sm-5">
-            <input type="url" class="form-control" name="refdesign" value={{data.refdesign}}>
+            <input type="url" class="form-control" name="refdesign" value="{{data.refdesign}}">
             </div>
         </div>
         <div class="form-group has-feedback row">
@@ -84,7 +84,7 @@
                     There is no content!
                 {% endif %}</h5>
             <div class="col-sm-5">
-            <input type="file" class="form-control" name="refcode" value={{data.refcode}}>
+            <input type="file" class="form-control" name="refcode" value="{{data.refcode}}">
             </div>
         </div>
         <div class="form-group has-feedback ">
@@ -96,7 +96,7 @@
                     There is no content!
                 {% endif %}</h5>
             <div class="col-sm-5">
-            <input type="file" class="form-control" name="refsch" value={{data.refsch}}>
+            <input type="file" class="form-control" name="refsch" value="{{data.refsch}}">
             </div>
         </div>
         {% csrf_token %}

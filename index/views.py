@@ -5,7 +5,13 @@ import urllib
 import re
 import urllib2
 from bs4 import BeautifulSoup
-import cookielib
+from django.contrib.auth import authenticate,login
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import AuthenticationForm
+
+from django import forms
+
+
 
 # Create your views here.
 def index(request):
@@ -51,6 +57,8 @@ def index(request):
         return render(request,'result.html',{'baidu':res1,'bing':res2,'zhihu':res3})
     else:
         return render(request,'index.html',)
+
+
 
 
 

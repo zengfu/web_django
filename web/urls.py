@@ -17,6 +17,8 @@ from django.conf.urls import url,include
 from django.contrib import admin
 from index import views as iv
 from ds import views as dsv
+from log import views as lv
+from django.contrib import auth
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -24,5 +26,8 @@ urlpatterns = [
     url(r'^dsupload/',dsv.dsupload,name='dsupload'),
     url(r'^dbhome/',dsv.index,name='dbhome'),
     url(r'^dsshow/',dsv.dsshow,name='dsshow'),
-    url(r'^dschange/(.*?)/',dsv.dschange,name='dschange')
+    url(r'^dschange/(.*?)/',dsv.dschange,name='dschange'),
+    url(r'^login/$',lv.mylogin,name='login'),
+    url(r'^logout/',lv.mylogout,name='logout'),
+    url(r'^signup/', lv.singup, name='signup')
 ]

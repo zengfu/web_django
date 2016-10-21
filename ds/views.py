@@ -1,10 +1,11 @@
+
 from django.shortcuts import render
 from django import forms
 from .models import ic,choice
 from django.db import IntegrityError
 import os
 from web.settings import BASE_DIR
-
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 #from reportlab.pdfgen import canvas
 
@@ -27,7 +28,7 @@ class DSForm(forms.Form):
     refsch = forms.FileField(required=False)
 
 
-
+@login_required()
 def dsupload(request):
     if request.method=='POST':
         form=DSForm(request.POST,request.FILES)
@@ -64,6 +65,8 @@ def dsshow(request):
         result.append(new)
     #return HttpResponse('ok')
     return render(request, 'ds_show.html', {'result':result})
+
+@login_required()
 def dschange(request,mypn):
     ic1 = ic.objects.filter(mypn=mypn)
     lastds=ic1[0].datasheet
