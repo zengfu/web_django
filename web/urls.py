@@ -18,6 +18,8 @@ from django.contrib import admin
 from index import views as iv
 from ds import views as dsv
 from log import views as lv
+from weixin import views as wv
+
 from django.contrib import auth
 
 urlpatterns = [
@@ -29,5 +31,6 @@ urlpatterns = [
     url(r'^dschange/(.*?)/',dsv.dschange,name='dschange'),
     url(r'^login/$',lv.mylogin,name='login'),
     url(r'^logout/',lv.mylogout,name='logout'),
-    url(r'^signup/', lv.singup, name='signup')
+    url(r'^signup/', lv.singup, name='signup'),
+    url(r'^weixin/', wv.weixin, name='weixin'),
 ]

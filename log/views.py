@@ -34,6 +34,7 @@ def mylogout(request):
     logout(request)
     return HttpResponseRedirect('/')
 def singup(request):
+
     if request.method == "POST":
         form = UserCreationForm(data=request.POST)
         if form.is_valid():

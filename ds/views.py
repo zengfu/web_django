@@ -42,7 +42,7 @@ def dsupload(request):
             try:
                 ic1.save()
             except IntegrityError:
-                path=os.path.join(BASE_DIR, "media\datasheet\\")
+                path=os.path.join(BASE_DIR, "media/datasheet/")
                 file=path+str(cd['datasheet'])
                 os.remove(file)
                 return render(request, 'ds_upload.html', {'form': form,'error_mypn':'Duplicated!','data':form.data})
@@ -78,7 +78,7 @@ def dschange(request,mypn):
             if not cd['datasheet']:
                 cd['datasheet']=lastds
             else:
-                path = os.path.join(BASE_DIR, "media\\")
+                path = os.path.join(BASE_DIR, "media/")
                 file = path + str(lastds)
                 os.remove(file)
             ic1 = ic(mypn=cd['mypn'], value=cd['value'],
